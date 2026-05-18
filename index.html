@@ -451,55 +451,213 @@ footer {
   color: rgba(255,255,255,0.25); letter-spacing: 0.5px;
 }
 
-/* ── LOGO RIBBON v2 ── */
-.logo-ribbon {
-  background: #FDFBFF;
-  border-top: 1px solid rgba(91,14,197,0.1);
-  border-bottom: 2px solid var(--neon);
-  padding: 0;
-  overflow: hidden;
+
+/* ── TITLE UPGRADES across site ── */
+a.exp-title { text-decoration: none; display: block; transition: color .15s }
+a.exp-title:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 5px }
+a.sp-title  { text-decoration: none; display: block; transition: color .15s }
+a.sp-title:hover  { color: var(--accent); text-decoration: underline; text-underline-offset: 4px }
+
+.exp-title {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 30px; color: var(--ink);
+  line-height: 1.05; letter-spacing: 0.01em; margin-bottom: 10px;
 }
-.ribbon-inner {
-  max-width: 1040px; margin: 0 auto;
-  display: flex; align-items: stretch;
+.sp-title {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 22px; color: var(--ink);
+  line-height: 1.15; margin-bottom: 7px;
 }
-.ribbon-label-cell {
-  padding: 22px 28px;
-  background: var(--ink);
+.tile-title {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 18px; color: var(--ink);
+  line-height: 1.2; margin-bottom: 8px;
+}
+
+/* ── SPEAKING ITEM layout with badge ── */
+.speaking-item {
+  display: grid; grid-template-columns: 68px 1fr;
+  gap: 28px; padding: 32px 0;
+  border-bottom: 1px solid var(--rule); align-items: start;
+}
+.speaking-item:last-child { border-bottom: none }
+.sp-badge {
+  width: 68px; height: 68px; flex-shrink: 0;
+  border: 2px solid var(--ink); overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; min-width: 80px;
-  border-right: 2px solid var(--neon);
+  background: white;
 }
-.ribbon-label-cell span {
+.sp-badge svg { width: 100%; height: 100%; display: block }
+.sp-venue {
+  font-family: var(--mono); font-size: 10px; font-weight: 400;
+  color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+/* ── EDITORIAL PULL QUOTE ── */
+.pull-block {
+  margin: 36px -8px 36px 0;
+  padding: 28px 28px 24px 32px;
+  background: var(--dark);
+  border-left: 4px solid var(--neon);
+  position: relative;
+}
+.pull-mark {
   font-family: var(--serif); font-style: italic; font-weight: 300;
-  font-size: 12px; color: rgba(232,255,0,0.6);
-  writing-mode: vertical-rl; text-orientation: mixed;
-  transform: rotate(180deg); letter-spacing: 0.1em;
+  font-size: 72px; line-height: 0.55; color: var(--neon);
+  opacity: 0.55; margin-bottom: 8px; display: block;
 }
-.ribbon-logos {
-  display: flex; align-items: center; flex: 1;
-  overflow-x: auto; padding: 0;
+.pull-quote {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 24px; line-height: 1.38; color: white;
+  border: none; padding: 0; margin: 0 0 16px;
 }
-.ribbon-logos::-webkit-scrollbar { display: none }
-.ribbon-logo {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 18px 28px; gap: 8px; flex-shrink: 0;
-  position: relative; cursor: default;
-  border-right: 1px solid rgba(91,14,197,0.08);
-  transition: background .2s;
+.pull-attr {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  color: rgba(232,255,0,0.45); text-transform: uppercase;
 }
-.ribbon-logo:hover { background: rgba(91,14,197,0.04) }
-.ribbon-logo:last-child { border-right: none }
-.logo-mark {
-  height: 32px; display: flex; align-items: center; justify-content: center;
-  opacity: 0.78; transition: opacity .2s, transform .2s;
+.story-continue {
+  font-size: 18px; font-weight: 300; color: var(--mid);
+  line-height: 1.85; padding-bottom: 26px;
+  border-bottom: 1px solid var(--rule); margin-bottom: 26px;
 }
-.ribbon-logo:hover .logo-mark { opacity: 1; transform: translateY(-1px) }
-.logo-tenure {
-  font-family: var(--mono); font-size: 9px;
-  color: var(--light); letter-spacing: 0.3px;
-  white-space: nowrap; line-height: 1;
+
+/* ── ACCORDION ── */
+.acc-toggle {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; user-select: none;
+  padding: 10px 0 4px;
+  border: none; background: none;
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+  width: 100%; text-align: left;
+  transition: color .15s;
 }
+.acc-toggle:hover { color: var(--ink) }
+.acc-arrow {
+  display: inline-block; transition: transform .25s ease;
+  font-size: 12px; line-height: 1;
+}
+.acc-toggle.open .acc-arrow { transform: rotate(90deg) }
+.acc-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease, opacity .25s ease;
+  opacity: 0;
+}
+.acc-body.open {
+  max-height: 600px;
+  opacity: 1;
+}
+.exp-item { padding: 36px 0 }
+
+/* MUSIC */
+#music{background:#0A0014;padding:80px 56px;border-top:2px solid var(--neon);border-bottom:2px solid var(--neon)}
+.music-inner{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:center}
+.music-eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;color:rgba(232,255,0,0.5);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.music-eyebrow::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:#1DB954;box-shadow:0 0 8px #1DB954;animation:mpulse 2s ease-in-out infinite}
+@keyframes mpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.music-headline{font-family:var(--serif);font-weight:300;font-size:52px;line-height:.97;color:white;margin-bottom:22px;letter-spacing:.01em}
+.music-headline em{font-style:italic;color:var(--neon);font-weight:300}
+.music-desc{font-size:16px;font-weight:300;color:rgba(200,185,230,.5);line-height:1.75;margin-bottom:28px;max-width:420px}
+.music-meta{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.22);letter-spacing:1px}
+.music-meta a{color:rgba(29,185,84,.65);text-decoration:none;transition:color .15s}
+.music-meta a:hover{color:#1DB954}
+.music-player iframe{display:block;border:2px solid rgba(232,255,0,.15);box-shadow:8px 8px 0 rgba(232,255,0,.07)}
+
+/* LOGO RIBBON - marquee */
+.logo-ribbon{background:white;border-top:1px solid rgba(91,14,197,0.1);border-bottom:2px solid var(--neon);overflow:hidden;padding:0}
+.ribbon-inner{display:flex;align-items:stretch;width:100%}
+.ribbon-label-cell{flex-shrink:0;padding:0 24px;background:var(--ink);border-right:2px solid var(--neon);display:flex;align-items:center;justify-content:center;z-index:2}
+.ribbon-label-cell span{font-family:var(--serif);font-style:italic;font-weight:300;font-size:11px;color:rgba(232,255,0,0.55);white-space:nowrap;letter-spacing:0.1em}
+.ribbon-track-wrap{flex:1;overflow:hidden;position:relative}
+.ribbon-track-wrap::before,.ribbon-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:1;pointer-events:none}
+.ribbon-track-wrap::before{left:0;background:linear-gradient(to right,white,transparent)}
+.ribbon-track-wrap::after{right:0;background:linear-gradient(to left,white,transparent)}
+.ribbon-track{display:flex;align-items:center;width:max-content;animation:marquee-scroll 48s linear infinite}
+.ribbon-track:hover{animation-play-state:paused}
+@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ribbon-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 36px;flex-shrink:0;border-right:1px solid rgba(91,14,197,0.08);cursor:default;transition:background .2s}
+.ribbon-logo:hover{background:rgba(91,14,197,0.04)}
+.logo-mark{height:28px;display:flex;align-items:center;justify-content:center;opacity:0.72;transition:opacity .2s,transform .2s}
+.ribbon-logo:hover .logo-mark{opacity:1;transform:translateY(-1px)}
+.logo-mark svg{height:100%;width:auto;display:block}
+.logo-tenure{font-family:var(--mono);font-size:8px;color:var(--light);letter-spacing:0.3px;white-space:nowrap;line-height:1}
+
+/* ── ABOUT: sequential single-column layout ── */
+.about-story {
+  max-width: 680px;
+  margin-bottom: 0;
+}
+.about-story p {
+  font-size: 19px; font-weight: 300;
+  color: var(--mid); line-height: 1.88;
+  margin-bottom: 28px;
+}
+.about-story p:last-child { margin-bottom: 0 }
+.about-story strong { color: var(--ink); font-weight: 500 }
+.story-continue {
+  font-size: 19px; font-weight: 300;
+  color: var(--mid); line-height: 1.88;
+  margin-bottom: 28px;
+}
+/* Philosophy grid - full width, clearly after the story */
+.about-philosophy {
+  margin-top: 56px;
+  padding-top: 44px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 72px;
+}
+.aside-label {
+  font-family: var(--mono); font-size: 10px; font-weight: 400;
+  color: var(--accent); letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.aside-block p {
+  font-size: 15px; font-weight: 300;
+  color: var(--mid); line-height: 1.75;
+}
+
+/* Pull block stays clean */
+.pull-block {
+  margin: 40px 0;
+  padding: 28px 32px 24px 36px;
+  background: var(--dark);
+  border-left: 4px solid var(--neon);
+}
+.pull-mark {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 72px; line-height: 0.55; color: var(--neon); opacity: 0.55;
+  margin-bottom: 8px; display: block;
+}
+.pull-quote {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 24px; line-height: 1.38; color: white;
+  border: none; padding: 0; margin: 0 0 16px;
+}
+.pull-attr {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  color: rgba(232,255,0,0.45); text-transform: uppercase;
+}
+
+#about { padding: 80px 0 0 }
+#about > .inner { padding: 0 56px 56px; max-width: 1040px; margin: 0 auto }
+.about-story { max-width: 680px }
+.about-story p, .story-continue { font-size:19px;font-weight:300;color:var(--mid);line-height:1.88;margin-bottom:28px }
+.about-story p:last-child { margin-bottom:0 }
+.about-story strong { color:var(--ink);font-weight:500 }
+.philosophy-band { background:var(--warm);padding:64px 56px;border-top:2px solid rgba(91,14,197,0.12) }
+.philosophy-inner { max-width:1040px;margin:0 auto }
+.philosophy-label { font-family:var(--serif);font-style:italic;font-weight:300;font-size:13px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:32px }
+.philosophy-tiles { display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink) }
+.phil-tile { padding:36px 32px;border-right:1px solid rgba(10,0,20,0.14);background:white;display:flex;flex-direction:column;gap:14px;transition:background .15s }
+.phil-tile:hover { background:#EDE0FF }
+.phil-tile:last-child { border-right:none }
+.phil-icon { flex-shrink:0;height:44px;display:flex;align-items:center }
+.phil-head { font-family:var(--serif);font-weight:300;font-size:22px;color:var(--ink);line-height:1.1 }
+.phil-body { font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;flex:1 }
 </style>
 </head>
 <body>
@@ -509,9 +667,10 @@ footer {
   <div class="nav-name">DORY ELLIS GARFINKLE</div>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#experience">Experience</a>
     <a href="#speaking">Speaking</a>
     <a href="#ideas">Ideas</a>
+    <a href="#music">Music</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -521,7 +680,7 @@ footer {
   <div class="hero-copy">
     <div class="eyebrow">Full-Stack Marketer · CMO</div>
     <h1>The right mix of tools,<br>people, and ideas,<br><em>at the right moment.</em></h1>
-    <p class="hero-body">Good marketing is a diagnosis, not a default. It's which combination of strategy, creative, technology, and talent actually moves the business. I figure that out.</p>
+    <p class="hero-body">Good marketing starts with a diagnosis, not a default. It's figuring out which combination of strategy, creative, technology, and talent actually moves the business.</p>
     <div class="btn-row">
       <a href="#experience" class="btn-primary">See the work</a>
       <a href="#contact" class="btn-ghost">Get in touch</a>
@@ -547,209 +706,192 @@ footer {
 
 <div class="logo-ribbon">
   <div class="ribbon-inner">
-
-    <div class="ribbon-label-cell">
-      <span>Career</span>
+    <div class="ribbon-label-cell"><span>Career</span></div>
+    <div class="ribbon-track-wrap">
+      <div class="ribbon-track">
+        <div class="ribbon-logo" title="Siegel+Gale (Omnicom)">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAACb0lEQVR42u1Yy67qMAycOIEFElCJBe8/Yc83w5YvQYBgR3mIRUmcuzJqoS2F9lyQzsmuJFiTscd2rLz3Hl+8CF++TFkD3ntkOUEpBaXU5wB675+CkDMfY9Bai+PxmAqs1WqhVqt9hkFhZrvdYjqd4nA4QGsNAHDOod1uYz6fYzQalWKxNEDvPVarFc7nc2L/dDrdYvMjAONCqNfriVj03idc+9EYVEqBmRNK9t6DmX9HHqwcoLizbP77vQxWXdp/jMGqgJpX66ssUWneOVFz0TxIRPkA47X1mUExZoxJNUxEqNVqqXtFCsADQNmw1mK73YKZQUSZQJkZWmtsNpvUnMfMWC6XYGY45zKBireUUuj1ejDGJEAqaVgF0H6/x2QywXq9hjEm96ZEBGbG4XB4AElEaLVa0FqDmTMvKqQMBgMsFgt0Op0blswY3O/3qR3KK4uZEYZh4fONRiP1EqkAjTFQSt0YelexRYXBzJneMkUVHG8EXv3tXfCZDDrn4L2Hcy6XpTwQ0ooVZd1aW5zBIAhwuVygtX4KgplxPB4TeVHCo9ls3kSS52JrLYIgSPecqFg2nXPY7XY35d27TL7jaWY6nSIMw8TZIAgwm80wHA5T00zcnlyq2+3eYlFsmXuXGGMwGo0Kq09rnRpPRITxeIx+v19dqYsz8CzIJQ9GUZR6lpkRRVHhUpdVvcy771kJgbxSRkQgolJvkt/XD/4B/HuT/O93cVytwpx8V8FiJeO36/X6UM6iKPoOBpVSGI/HCMPwYXhUxXRBvTsClr9Zax8GR7LfbDZLj99UmRn1fUPxdQNMAfeTI2D1N+Uvuf4Bh9OeWbwIyrAAAAAASUVORK5CYII=" alt="Siegel+Gale" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Lyft">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Lyft" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="IDEO">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="IDEO" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="GIG Car Share">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="GIG Car Share" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Zipcar">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Zipcar" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="McCann Worldgroup">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAFDElEQVR42u2YS0wUWxqAv6pTLaJigm0UkgYFFzYqQnzEBxpXxoWyETXqyqgLCS6MrtxN2Bi3LtTEBy5M3KjgOyRiQndA08QHMXQTNBBxYUMQUDoFTZ2qfxZOH3HmZjJzb25yc9P/qur85/Gdv/5XygKEv7DY/MUlD5gHzAPmAfOAecC/OaBjWRZKKTOgtea3xn7zdraNbf+4o4jg+/5/rPV9HxFBKYVlWWZe7j0IAizLMs9BEOA4jllr/d5uxrZtgiD48y1YXV3NsWPHzGHNzc2UlpZy6tQpfN9Ha82FCxf4/v27sUAObs2aNRw5coTy8nLi8TjXr19n5cqVnD59miAIUEpx9epVPnz4wNmzZykrK2N0dJSLFy/S1NREZWUlPT09rFq1inA4TDwe5/HjxzQ3N+M4Di0tLXDw4EGZK9u2bZPjx4//MhaJREQpJbZti1JKAKmvrxfXdc2ciYkJAeTo0aO/rD1x4oQAMjg4aMaqqqqkq6tLRETu3bsnmUxGREQ+fvwoFRUVZt6BAwfEnp2dRWvN9PQ0Wmui0Sjr1q1Da43neWQyGeM3QRDg+z6LFi3i2rVrFBYWorXmzZs3pFIpbNumpqbml/02bNgAwOTkJFprfN9nz549fPr0Ca01U1NTTExMoLVmxYoVbN682eiy2eyPIHEcxzh3XV0dkUjEOGoQBGQyGRoaGjhz5gxFRUU8ffqUpUuXIiJcunSJc+fOUVJSgohQU1OD4zgMDw9TWVlJdXX1T3/615579+5lcnISx3GwbRvHcYxu3759aK0NkyPyI0amp6cpKCigrq6OJUuW4LouCxYsYGpqioaGBm7cuGEOEhETebdv38ayLNLpNPPnz2f9+vWICO3t7TQ2NlJVVcXChQvxPM+s3bhxIyMjIybY5sru3btNFrAs62ce/PbtG319fUSjUZYtW0ZfXx8Anudx6NAhRITOzk527dpFV1cXlmUZC+ekoqKC5cuXMzY2xoMHD9BaEw6HWb16NTMzMwAkEgkWL15MNBo1EEopstks79+/p6SkhHA4/BMwZ0HP8+jt7UVEmJmZ4e3btwAopSgsLEREePbsGbFYjLa2NhPR+/fvR0QIhULU1taaT9bU1GTy4tq1a8lmswB0dHTw+fPnX6yWy5MPHz40edGkMxFBa42IkEgkCIKAkZERUqkUWmtc1+Xr16/Yts3hw4dpbGzEdV2Gh4exLIvz58/z8uVLbt26xZYtW9BaU1xcTH19PaFQyARKLhgHBgaIx+NordFaEwQBnudhWRbd3d0MDQ2Z9CYi2AUFBTiOQ1lZGalUCqUU4+PjpNNpHMehvLycK1euMDY2Rm1tLZcvXyYSiXDy5ElmZ2cJhUJs3bqVnTt3smnTJhzH4cmTJ2zfvp3+/n4cx2HHjh2UlpaaYLh//755Lioqori4GKUU6XSaWCxmdPPmzUPZtv2PmZkZOjs7aW1txfM8WltbeffuHVprYrEYN2/e5O7du7iuSzKZpK2tjUQiwaNHjxgfH2doaIg7d+4wODhIf38/LS0txONxRkdH+fLlCz09Pbx+/ZqBgQFevHjBq1evCIVCJBIJnj9/TjKZpLe3l/b2dpLJJK7r0t3dTUdHx/9W6nL+9v+UOqUUvu//4VJnWZYlSilExJSnIAiM4+aahbmNQa4B+PdmIXeZXNHP6efqctC5vec2C7mgmnuOlf/1kQfMA+YB84B5wDxgHvC/yT8BKTPrYUxN7/0AAAAASUVORK5CYII=" alt="McCann Worldgroup" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Microsoft">
+          <div class="logo-mark"><svg viewBox="0 0 112 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="3" width="11" height="11" fill="#F25022"/><rect x="13" y="3" width="11" height="11" fill="#7FBA00"/><rect x="0" y="16" width="11" height="11" fill="#00A4EF"/><rect x="13" y="16" width="11" height="11" fill="#FFB900"/><text x="28" y="20" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="300" fill="#111111" letter-spacing="-0.2">Microsoft</text></svg></div>
+        </div>
+        <div class="ribbon-logo" title="PG&E">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="PG&E" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="General Motors">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAADeklEQVR42u1ZPUgrTRQ9M7NGIkgsrAQLU2kV0EKwMo32YiEWgpWtiGhErARbS7EQEQSLdKIRU6nYimgQCyFgqRAlEs2G7Mx5zbeL0ZhN8hnIe+TCsOTuZPbM/Tt3dkUgEKDWGs0oSikIKSWNMU0JUEoJKYRAs4oQAhJNLi2ALYAtgD5iVZ3uUkIIAZLeFQBIwhjj3XfnlxP3vwCgtfbW+N8AScKPbRpV7C0/y7m7np6exuDgYImV2tracHx8jJOTE0xOTmJ0dBTFYtHblJQSUsqSDZLE7e0t9vf3obUu8cZPfEcAZYeUkkIIbm1t8SfZ2NggAG5vb7MW2dvboxCCUsofn6+UoqzEg8YY9Pf3Y25uDlprPD8/Ix6PI5FIIJ/Pw3EcvL+/AwByuZz3++joCAcHB7i+vobjOCgUCkgkEojH43h6eoLWGjMzMxgYGPDit2YLuvpoNEpjDElyaWmJABgOh2nbNklybW2NALi5uUmSzGaz7OnpIQAuLi6SJG3bZjgcJgDGYjGSpDGG0Wi05Fk1WfBz8Ltx9/r6CqUUOjs7K8ZtKBSCUgrBYNDTu7q3tzdvXjWJVVMdtCwLWmvfhbXW3+a5OqVU4wp1NXXrt9f4t6iOJCzLqtlNDQXoFloACAQCcBwHLy8vzcPF2WwWQgg4joP5+XmEQiF0d3d/41tjjJcIXynyM+9+ZZW6AbrlJZVKIZlMYmxsDOFwGOvr615WfpZgMAilFLq6urzC297eDqUUOjo6vLBwdW5VqBugy8HFYhFTU1NYXl7G0NAQCoUCQqEQhoeHoZTyrHB/f4+Liwtks1nkcjkAwMPDA87Pz/Hx8eHp0uk0zs7OoLVGJpPxt2QlLv5p9PX1sVAo0BjDWCxGABRCePeFEN/YoZzOb1TFJF/7u2AwiIWFBViWBSEEHh8fv1mhXHtWTctWV5K47dDKygpGRkbQ29uLSCTiuev09BQAMDs7i4mJCdi27VuGSEIphdXVVdzd3XmNSV0udtuhy8vLknYplUoxEol483Z2dlirjI+P+zYLVrXUtLu7i6urK2QyGdzc3CCZTCKfz8OyLDiOg8PDQ+RyORSLxcrt0yfPpNNp3yQRSqm6Xx5VdM0vvTyyagEjhPBi0hhTAq6aQ1O5rsevWFcN0M9SjbJk6+DeAtgC+NcD/I2DUKPkvyOGhWb+DPEH0WDPqJ84DMEAAAAASUVORK5CYII=" alt="General Motors" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="AAA">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="AAA" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="CitiBike">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="CitiBike" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Bay Wheels">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAoCAYAAACvpem4AAAI/ElEQVR42tWaa4xcZRnHf8973jlzZjqd7fZOgTa2YAvFLYIgUrACIWKBBIkRTZQPQjQkKkYr3qIhIlEUE9GIKJcEsKKmMSgXA1KDF0RAxACVi6WlLb1Quu2yOztz5sw57+OHM/futexCeZOzMzm3ef7P/7m/K/qdl1fzSm0x4hRFaCxBUSN8+cgNLM3VcAqmdXlalgNM/XtNYdNwjj8PHM+28hIiyWJwfGPJBuZmEr65ZS2D2tMht6CoCDlT5uuL72FuxqGAgOgxjz7E5tw5UE3PNJcCWfjbO3o4ozhIouDJ9IOMFW7a3cede77ApuHzGc7MTy+Y9KZ/H5fn2FzI/Ef2UemZDVGb3ApY8IYinju1wLEtgiw9md14pQhTi3HYFqPq0JrB4pju1QD5/LDPZ7dey8ZwHcSp4CaMMcSoGIzGWKOIKL3+NqJSARO35BZ1qDUs8DdhRdt/wpK4DAk+KganbUBxKKbDnKcT5KODM7n4+b+zR/qwwyEOi6rBSfqpUj/q8id6sNwNmUNX7Jbb8lauuv+wr2b42H8fZA992EpILEFD2x1LJmhdVqoIengBNcB129ey3TsNO9wGsm0ZiUHAuYnJG7vs4cNoA+SOqsdtu3+EOIcTSycRqd8lgQ8eZCrlCUV+j1o3o+YtA+rqcjwxuID9ZhmiriNGNINLYFgd3MStRy/n4Xcv5NhcSKiC0Xj0d4t36Iw6Hfu6kbYor4zpTdImw73950EGpNb5hCcRSeCzJvgx9/ddSb6Nk8FEEKOQjPJ+VZxCoqncOhmgmUmQLwLeBEwXYEe4fEStqBowcMWiH3aAnNDv4yjaBE+auX98oImmd9716hL+Wj4dP6mStJmYwVGzGS4obuT8OXsBOBAL120/jyFXxKjrrFyM0GMO8JWjH6JolZLOBq0D6wZahfWvXsqjg5uoqQ/AV4/eQNE6nPNG1WBID1e99CmK3gCJ8xCjdgImmwr5wIFzud3eDP100pUAs2B+6ewm0P6a5fvb7kVnmTTxt1cuPvQObuXKI4+hiBIn2boVuI5ApGIggXvK10DYqowuX5hnjl9Jr3e5k4oBB0NyBLcP3dyeniZuujNkCFsKsWFIrEGnL5V8cvlK2zllTmYzA8OLkThN4gDGxLiapdff3oyeIq7F4EgRNIwwGqPGYEgrI9Xx/cIrR4i6QwhGYlKACjFBh4kl6uO6BI01S0yQRk6pA9UYp5bYZTtNdEzX8XGaVkeGeHyQbc8dNgXDRAOLmJZVTOa5txXQht9NNuV3+bA57IFmKKdCGzq6q3HoxGqYBqO0xZseRlVlnDzrmspuBKPuqNtouW5YeirvKuygph6CsiwfUnUjV0aiDvUMvWYrN684k3m2hEOQ6TJdEZ0qB+Wkmdt4b7HUcXo4qZdhOvIzvhlmdXE3C3039abbzuJ4jE5mlZMMiULk0umDaip1xoSjNrgD8WJeq/kkmo5kEp1CoEYcrtFjThWjgBFtlnKepOVlzjh6vR0j8iTqiKRAfy3AkybpZkrCPwZCF2DqRVDFeZR0QVo1TeGAQuoNwwwP5mS2g9eZRlQMRmI0a/jprstQBT9VkJmQRsfyu0R9qMAdr36bJ4ZmMJgIt+76ILEfpAl+iiN7A9ZZvXenPOnB8siwY8PA9Zz7zA+4YeeJ/O61RXbsyGgMA7UcMMgsu3/kLkMMRPCynME5//kf8zIvsqW6pi6UHcWfTVtLZyZUIXW3eBfOeZKrX4lQMWm0bVOoikGqjo3eOjbuXAcRBs/UxqAT9sUzAVgabIOEg5rjhk1J1TGkR7AlWZNqWacloDdqe1YVKny050u4gsUSjkiAF0Z4lQipOcNCfzPiuYNHGDjwYHu4CIDTiy+TCcujurWKQRKHiWNEXXtBPS1zGAW+e8xNLKo9RS2bxyMa0a0S9VExhtOKG1P03TcKEMPDBy7CKRw3o8qFs6/GFSwZyqOCVVcfS1ozplu8sUicBqUlQcyvV5zFAvMsSc7HI8KTaCQlGz535COcZH9FrSdPhjKeRGnkUoONQv5RvoxHBnsQ4NplN3BU/AS1XB6rYfNeI+mQ2WqY9qoCs81Lo7OvpmlA1qtiJSRjyljC1iHpIaP4gJF0VHLmrNd5cOUpnGDvJsn5JFkfNSlxGZrvNPRY5dbll3Na5hZqhTxJ4OMyFudbYj+gWizytS3fI3SwIhfxwAlncpy9j7gnaN2bsbisJS4GaNZw/dJTeH/xFsil/epBdahUydSj+P5oMfHMgGquSDwzaB61Qp64EFDT0YcyXh1sXyHknyd+mJ8tXsnpuZ/jS4mk4FPryTfeJ5q4VDulWLhj70r+0P9xNofvw2qVJcFTnNe7gbNnP8cJ+QoiKUmvx8Jv9y3n9/2X8GJpNQk+RbOHNfN/wwXFv7BqxgAr/vUi+5NlaePd6EeJcVnLyf4vefykT2IEfrJzFTvjRZgkOWiTKxHLpxf+iWXjbHK1Nzeq8Gw54Mmhoyi5PHujuUQuK9qY2E0023VvNmn9h9r1/onnrmD90I14laijAfYkIsn5fCi4hvv7vtWc1E/VnNiNvhFmmn+1Pv7Rrofj+sgwqV94bGgmn9/8EZ4ZDqhpKmgD5NOlgEtf+AzrD9yIqcTdXX4aJAx8YNZ9TaUl9all87t2ntdJVE2etEatsaZH/d0po5Nh8o/981i7cy/51/exOHicHm8P8zNb2R728UJ4LmF2FjLcMtfujt94MU+fXOT4fPVQ+ulDXZNv06w4vEpEOZ7L8/Hauvrq9utIzVX8EbYJIuJCwCX5L3J8vjrt+61vGKjWE7EnEVo1HVM8VTMiSENMYnyC6gBXrbhtuoqmqQXaAmzSWla7HGUEJhPjI+JY/86VrCpU0uAlbwOghrhVSQmoa3mamLScbDCd5HxsFPKLZX1cPG/Xm/K/EFMCVACXta0tPteWYwTUpIMsvNR335O5k6uXruP8uXvfbL/s2nfSiY5K0hap7OCh/Qt54MAaHhu6gFI8l9AVGYoXkPMGKJo9FOw+zum9i1OLz3DR3F3ICPn3sAU60oocVJwwGBuGnCVnEnptQs4oWTN6kfEWrP8DqTkvtyMLuYQAAAAASUVORK5CYII=" alt="Bay Wheels" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Divvy">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Divvy" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Avis">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Avis" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Enterprise">
+          <div class="logo-mark"><svg viewBox="0 0 108 30" xmlns="http://www.w3.org/2000/svg"><text x="2" y="22" font-family="'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#00802A" letter-spacing="-0.2">Enterprise</text></svg></div>
+        </div>
+        <div class="ribbon-logo" title="Siegel+Gale (Omnicom)">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAACb0lEQVR42u1Yy67qMAycOIEFElCJBe8/Yc83w5YvQYBgR3mIRUmcuzJqoS2F9lyQzsmuJFiTscd2rLz3Hl+8CF++TFkD3ntkOUEpBaXU5wB675+CkDMfY9Bai+PxmAqs1WqhVqt9hkFhZrvdYjqd4nA4QGsNAHDOod1uYz6fYzQalWKxNEDvPVarFc7nc2L/dDrdYvMjAONCqNfriVj03idc+9EYVEqBmRNK9t6DmX9HHqwcoLizbP77vQxWXdp/jMGqgJpX66ssUWneOVFz0TxIRPkA47X1mUExZoxJNUxEqNVqqXtFCsADQNmw1mK73YKZQUSZQJkZWmtsNpvUnMfMWC6XYGY45zKBireUUuj1ejDGJEAqaVgF0H6/x2QywXq9hjEm96ZEBGbG4XB4AElEaLVa0FqDmTMvKqQMBgMsFgt0Op0blswY3O/3qR3KK4uZEYZh4fONRiP1EqkAjTFQSt0YelexRYXBzJneMkUVHG8EXv3tXfCZDDrn4L2Hcy6XpTwQ0ooVZd1aW5zBIAhwuVygtX4KgplxPB4TeVHCo9ls3kSS52JrLYIgSPecqFg2nXPY7XY35d27TL7jaWY6nSIMw8TZIAgwm80wHA5T00zcnlyq2+3eYlFsmXuXGGMwGo0Kq09rnRpPRITxeIx+v19dqYsz8CzIJQ9GUZR6lpkRRVHhUpdVvcy771kJgbxSRkQgolJvkt/XD/4B/HuT/O93cVytwpx8V8FiJeO36/X6UM6iKPoOBpVSGI/HCMPwYXhUxXRBvTsClr9Zax8GR7LfbDZLj99UmRn1fUPxdQNMAfeTI2D1N+Uvuf4Bh9OeWbwIyrAAAAAASUVORK5CYII=" alt="Siegel+Gale" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Lyft">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Lyft" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="IDEO">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="IDEO" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="GIG Car Share">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="GIG Car Share" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Zipcar">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="Zipcar" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="McCann Worldgroup">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAFDElEQVR42u2YS0wUWxqAv6pTLaJigm0UkgYFFzYqQnzEBxpXxoWyETXqyqgLCS6MrtxN2Bi3LtTEBy5M3KjgOyRiQndA08QHMXQTNBBxYUMQUDoFTZ2qfxZOH3HmZjJzb25yc9P/qur85/Gdv/5XygKEv7DY/MUlD5gHzAPmAfOAecC/OaBjWRZKKTOgtea3xn7zdraNbf+4o4jg+/5/rPV9HxFBKYVlWWZe7j0IAizLMs9BEOA4jllr/d5uxrZtgiD48y1YXV3NsWPHzGHNzc2UlpZy6tQpfN9Ha82FCxf4/v27sUAObs2aNRw5coTy8nLi8TjXr19n5cqVnD59miAIUEpx9epVPnz4wNmzZykrK2N0dJSLFy/S1NREZWUlPT09rFq1inA4TDwe5/HjxzQ3N+M4Di0tLXDw4EGZK9u2bZPjx4//MhaJREQpJbZti1JKAKmvrxfXdc2ciYkJAeTo0aO/rD1x4oQAMjg4aMaqqqqkq6tLRETu3bsnmUxGREQ+fvwoFRUVZt6BAwfEnp2dRWvN9PQ0Wmui0Sjr1q1Da43neWQyGeM3QRDg+z6LFi3i2rVrFBYWorXmzZs3pFIpbNumpqbml/02bNgAwOTkJFprfN9nz549fPr0Ca01U1NTTExMoLVmxYoVbN682eiy2eyPIHEcxzh3XV0dkUjEOGoQBGQyGRoaGjhz5gxFRUU8ffqUpUuXIiJcunSJc+fOUVJSgohQU1OD4zgMDw9TWVlJdXX1T3/615579+5lcnISx3GwbRvHcYxu3759aK0NkyPyI0amp6cpKCigrq6OJUuW4LouCxYsYGpqioaGBm7cuGEOEhETebdv38ayLNLpNPPnz2f9+vWICO3t7TQ2NlJVVcXChQvxPM+s3bhxIyMjIybY5sru3btNFrAs62ce/PbtG319fUSjUZYtW0ZfXx8Anudx6NAhRITOzk527dpFV1cXlmUZC+ekoqKC5cuXMzY2xoMHD9BaEw6HWb16NTMzMwAkEgkWL15MNBo1EEopstks79+/p6SkhHA4/BMwZ0HP8+jt7UVEmJmZ4e3btwAopSgsLEREePbsGbFYjLa2NhPR+/fvR0QIhULU1taaT9bU1GTy4tq1a8lmswB0dHTw+fPnX6yWy5MPHz40edGkMxFBa42IkEgkCIKAkZERUqkUWmtc1+Xr16/Yts3hw4dpbGzEdV2Gh4exLIvz58/z8uVLbt26xZYtW9BaU1xcTH19PaFQyARKLhgHBgaIx+NordFaEwQBnudhWRbd3d0MDQ2Z9CYi2AUFBTiOQ1lZGalUCqUU4+PjpNNpHMehvLycK1euMDY2Rm1tLZcvXyYSiXDy5ElmZ2cJhUJs3bqVnTt3smnTJhzH4cmTJ2zfvp3+/n4cx2HHjh2UlpaaYLh//755Lioqori4GKUU6XSaWCxmdPPmzUPZtv2PmZkZOjs7aW1txfM8WltbeffuHVprYrEYN2/e5O7du7iuSzKZpK2tjUQiwaNHjxgfH2doaIg7d+4wODhIf38/LS0txONxRkdH+fLlCz09Pbx+/ZqBgQFevHjBq1evCIVCJBIJnj9/TjKZpLe3l/b2dpLJJK7r0t3dTUdHx/9W6nL+9v+UOqUUvu//4VJnWZYlSilExJSnIAiM4+aahbmNQa4B+PdmIXeZXNHP6efqctC5vec2C7mgmnuOlf/1kQfMA+YB84B5wDxgHvC/yT8BKTPrYUxN7/0AAAAASUVORK5CYII=" alt="McCann Worldgroup" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="Microsoft">
+          <div class="logo-mark"><svg viewBox="0 0 112 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="3" width="11" height="11" fill="#F25022"/><rect x="13" y="3" width="11" height="11" fill="#7FBA00"/><rect x="0" y="16" width="11" height="11" fill="#00A4EF"/><rect x="13" y="16" width="11" height="11" fill="#FFB900"/><text x="28" y="20" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="300" fill="#111111" letter-spacing="-0.2">Microsoft</text></svg></div>
+        </div>
+        <div class="ribbon-logo" title="PG&E">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="PG&E" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="General Motors">
+          <div class="logo-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAADeklEQVR42u1ZPUgrTRQ9M7NGIkgsrAQLU2kV0EKwMo32YiEWgpWtiGhErARbS7EQEQSLdKIRU6nYimgQCyFgqRAlEs2G7Mx5zbeL0ZhN8hnIe+TCsOTuZPbM/Tt3dkUgEKDWGs0oSikIKSWNMU0JUEoJKYRAs4oQAhJNLi2ALYAtgD5iVZ3uUkIIAZLeFQBIwhjj3XfnlxP3vwCgtfbW+N8AScKPbRpV7C0/y7m7np6exuDgYImV2tracHx8jJOTE0xOTmJ0dBTFYtHblJQSUsqSDZLE7e0t9vf3obUu8cZPfEcAZYeUkkIIbm1t8SfZ2NggAG5vb7MW2dvboxCCUsofn6+UoqzEg8YY9Pf3Y25uDlprPD8/Ix6PI5FIIJ/Pw3EcvL+/AwByuZz3++joCAcHB7i+vobjOCgUCkgkEojH43h6eoLWGjMzMxgYGPDit2YLuvpoNEpjDElyaWmJABgOh2nbNklybW2NALi5uUmSzGaz7OnpIQAuLi6SJG3bZjgcJgDGYjGSpDGG0Wi05Fk1WfBz8Ltx9/r6CqUUOjs7K8ZtKBSCUgrBYNDTu7q3tzdvXjWJVVMdtCwLWmvfhbXW3+a5OqVU4wp1NXXrt9f4t6iOJCzLqtlNDQXoFloACAQCcBwHLy8vzcPF2WwWQgg4joP5+XmEQiF0d3d/41tjjJcIXynyM+9+ZZW6AbrlJZVKIZlMYmxsDOFwGOvr615WfpZgMAilFLq6urzC297eDqUUOjo6vLBwdW5VqBugy8HFYhFTU1NYXl7G0NAQCoUCQqEQhoeHoZTyrHB/f4+Liwtks1nkcjkAwMPDA87Pz/Hx8eHp0uk0zs7OoLVGJpPxt2QlLv5p9PX1sVAo0BjDWCxGABRCePeFEN/YoZzOb1TFJF/7u2AwiIWFBViWBSEEHh8fv1mhXHtWTctWV5K47dDKygpGRkbQ29uLSCTiuev09BQAMDs7i4mJCdi27VuGSEIphdXVVdzd3XmNSV0udtuhy8vLknYplUoxEol483Z2dlirjI+P+zYLVrXUtLu7i6urK2QyGdzc3CCZTCKfz8OyLDiOg8PDQ+RyORSLxcrt0yfPpNNp3yQRSqm6Xx5VdM0vvTyyagEjhPBi0hhTAq6aQ1O5rsevWFcN0M9SjbJk6+DeAtgC+NcD/I2DUKPkvyOGhWb+DPEH0WDPqJ84DMEAAAAASUVORK5CYII=" alt="General Motors" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="AAA">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="AAA" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+        <div class="ribbon-logo" title="CitiBike">
+          <div class="logo-mark"><img src="data:image/png;base64,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" alt="CitiBike" height="40" style="height:40px;width:auto;display:block;object-fit:contain"></div>
+        </div>
+      <section id="about">
+<div class="inner">
+  <div class="section-label">About</div>
+  <div class="about-story">
+    <p>I grew up in the Detroit &#8220;Motor City&#8221; orbit, where the car in the driveway told a story of status, livelihood, identity.</p>
+    <p>After going to college in Boston, I returned to Detroit to get started at McCann working on Buick retail ads.</p>
+    <div class="pull-block">
+      <span class="pull-mark">&#8220;</span>
+      <blockquote class="pull-quote">That early experience helped me realize I needed a different city, a different industry, a different problem to solve.</blockquote>
+      <div class="pull-attr">On leaving Detroit for San Francisco</div>
     </div>
+    <p class="story-continue">McCann sent me to San Francisco to work on the Microsoft Enterprise Software account. I planned to stay two years, but what followed was a decade building growth and brand organizations inside companies trying to change how cities move (Zipcar, GIG Car Share, then IDEO, then Lyft). A career spent persuading people to leave their cars behind, shaped entirely by growing up where those cars were everything.</p>
+    <p>I&#8217;m now the Chief Marketing Officer at Siegel+Gale, Omnicom&#8217;s global brand consultancy, where I create and convey value by embracing constant change across industries.</p>
+  </div>
+</div>
 
-    <div class="ribbon-logos">
+<div class="skills-band">
+  <div class="skills-inner">
+    <div class="skills-grid">
+      <div class="skill-card"><h3>Integrated Strategy</h3><p>Start with the business goal, build backwards. I&#8217;m dogged when it comes to clarifying a goal and sharpening a brief.</p></div>
+      <div class="skill-card"><h3>Growth &amp; Demand Gen</h3><p>Full-funnel: acquisition, retention, ABM, lifecycle, performance, martech. I&#8217;ve built these functions from scratch at multiple organizations and know where the leverage is.</p></div>
+      <div class="skill-card"><h3>Brand Development</h3><p>Positioning, campaign development, sub-brand systems, repositioning. I&#8217;ve managed nine brands simultaneously, and brought them into an architecture that makes sense, drives conversion and repeat revenue.</p></div>
+    </div>
+  </div>
+</div>
 
-      <div class="ribbon-logo" title="Siegel+Gale (Omnicom) — CMO, 2024-Present">
-        <div class="logo-mark">
-          <svg viewBox="0 0 124 40" xmlns="http://www.w3.org/2000/svg" height="30">
-            <text x="2" y="19" font-family="Georgia,serif" font-size="16" fill="#111" letter-spacing="0.2">Siegel</text>
-            <text x="2" y="38" font-family="Georgia,serif" font-size="16" fill="#111" letter-spacing="0.2">+Gale</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">2024–Now</span>
+<div class="philosophy-band">
+  <div class="philosophy-inner">
+    <div class="philosophy-label">Point of view</div>
+    <div class="philosophy-tiles">
+
+      <div class="phil-tile">
+        <div class="phil-icon"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <line x1="8" y1="24" x2="20" y2="24" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="20" y1="24" x2="16" y2="19" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="20" y1="24" x2="16" y2="29" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="24" x2="28" y2="24" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="28" y1="24" x2="32" y2="19" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="28" y1="24" x2="32" y2="29" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="5" fill="#5B0EC5"/>
+        </svg></div>
+        <div class="phil-head">Philosophy</div>
+        <p class="phil-body">Marketing is most powerful when brand clarity, the demand engine, creative, and data are all pulling in the same direction. Getting those things aligned requires discipline and teamwork.</p>
       </div>
 
-      <div class="ribbon-logo" title="Lyft — Director, Head of Marketing, 2021-2024">
-        <div class="logo-mark">
-          <svg viewBox="0 0 80 32" xmlns="http://www.w3.org/2000/svg" height="26">
-            <text x="2" y="27" font-family="'Helvetica Neue',Arial,sans-serif" font-size="27" font-weight="800" fill="#FF00BF" letter-spacing="-1">lyft</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">2021–2024</span>
+      <div class="phil-tile">
+        <div class="phil-icon"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <rect x="6" y="34" width="8" height="10" rx="1" fill="#5B0EC5" opacity="0.35"/>
+          <rect x="20" y="26" width="8" height="18" rx="1" fill="#5B0EC5" opacity="0.6"/>
+          <rect x="34" y="14" width="8" height="30" rx="1" fill="#5B0EC5" opacity="0.9"/>
+          <line x1="38" y1="12" x2="38" y2="5" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="38" y1="5" x2="34" y2="9" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="38" y1="5" x2="42" y2="9" stroke="#5B0EC5" stroke-width="2.5" stroke-linecap="round"/>
+        </svg></div>
+        <div class="phil-head">On brand</div>
+        <p class="phil-body">Brand is the highest-leverage demand gen tool available to most organizations. The leaders who treat brand as a growth decision tend to be the ones winning the next cycle.</p>
       </div>
 
-      <div class="ribbon-logo" title="IDEO — Senior Lead, Global Brand &amp; Marketing, 2018-2021">
-        <div class="logo-mark">
-          <svg viewBox="0 0 86 32" xmlns="http://www.w3.org/2000/svg" height="24">
-            <text x="2" y="26" font-family="'Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="900" fill="#111" letter-spacing="2.5">IDEO</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">2018–2021</span>
-      </div>
-
-      <div class="ribbon-logo" title="GIG Car Share — 2017-2018">
-        <div class="logo-mark">
-          <svg viewBox="0 0 80 32" xmlns="http://www.w3.org/2000/svg" height="26">
-            <rect x="1" y="2" width="78" height="28" rx="14" fill="#00A651"/>
-            <text x="40" y="22" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle" letter-spacing="2.5">GIG</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">2017–2018</span>
-      </div>
-
-      <div class="ribbon-logo" title="Zipcar — Regional Marketing, 2011-2014">
-        <div class="logo-mark">
-          <svg viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" height="24">
-            <text x="2" y="25" font-family="'Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="700" fill="#003087" letter-spacing="-0.3">zipcar</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">2011–2014</span>
-      </div>
-
-      <div class="ribbon-logo" title="McCann Erickson — Early career">
-        <div class="logo-mark">
-          <svg viewBox="0 0 98 32" xmlns="http://www.w3.org/2000/svg" height="24">
-            <text x="2" y="25" font-family="'Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="700" fill="#CC0000">McCann</text>
-          </svg>
-        </div>
-        <span class="logo-tenure">Early career</span>
+      <div class="phil-tile">
+        <div class="phil-icon"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <circle cx="14" cy="14" r="6" fill="none" stroke="#5B0EC5" stroke-width="2"/>
+          <path d="M6 38 Q6 28 14 28 Q22 28 22 38" fill="none" stroke="#5B0EC5" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="34" cy="14" r="6" fill="#5B0EC5"/>
+          <path d="M26 38 Q26 28 34 28 Q42 28 42 38" fill="#5B0EC5"/>
+          <text x="24" y="19" font-family="monospace" font-size="14" fill="#5B0EC5" text-anchor="middle" font-weight="700">+</text>
+        </svg></div>
+        <div class="phil-head">On teams</div>
+        <p class="phil-body">The most important hires I&#8217;ve made were people better than me in specific areas. Recognizing that gap and filling it deliberately has been highly rewarding.</p>
       </div>
 
     </div>
   </div>
 </div>
 
+</section>217;s global brand consultancy, where I create and convey value by embracing constant change across industries.</p>
+  </div>
 
-
-<!-- ABOUT -->
-<section id="about">
-<div class="inner">
-  <div class="section-label">About</div>
-  <div class="about-grid">
-    <div class="story">
-      <p>I grew up in the Detroit orbit, where the car in the driveway wasn't just transportation. It was the whole story of a family. Status, livelihood, identity. The region ran on it. So did everyone I knew.</p>
-      <p>After studying communications and advertising in Boston, I took what felt like a slightly ironic first job: writing Buick retail ads at McCann in Detroit. It clarified everything quickly.
-        <span class="pull">"I needed a different city, a different industry, a different problem to solve."</span>
-        McCann sent me to San Francisco. I planned to stay two years.
-      </p>
-      <p>What followed was a decade building growth and brand organizations inside companies trying to change how cities move. Zipcar, GIG Car Share, then IDEO, then Lyft. <strong>A career spent persuading people to leave their cars behind, shaped entirely by growing up where those cars were everything.</strong></p>
-      <p>Now I'm CMO at Siegel+Gale, Omnicom's global brand consultancy, <strong>creating and conveying value by embracing constant change.</strong></p>
+  <!-- PHILOSOPHY - 2×2 grid, clearly below the story, different visual register -->
+  <div class="about-philosophy">
+    <div class="aside-block">
+      <div class="aside-label">Philosophy</div>
+      <p>Marketing is most powerful when brand clarity, the demand engine, creative, and data are all pulling in the same direction. Getting those things aligned requires discipline and teamwork.</p>
     </div>
-    <div class="aside">
-      <div class="aside-block">
-        <div class="aside-label">Philosophy</div>
-        <p>Marketing is most powerful when brand clarity, the demand engine, creative, and data are all pulling in the same direction. Getting those things aligned is the actual job.</p>
-      </div>
-      <div class="aside-block">
-        <div class="aside-label">On brand</div>
-        <p>Brand is the highest-leverage demand gen tool available to most organizations. The leaders who treat brand as a growth decision tend to be the ones winning the next cycle.</p>
-      </div>
-      <div class="aside-block">
-        <div class="aside-label">On teams</div>
-        <p>The most important hires I've made were people better than me in specific areas. Recognizing that gap and filling it deliberately. That's most of leadership.</p>
-      </div>
-      <div class="aside-block">
-        <div class="aside-label">Education</div>
-        <p>B.S. Marketing Communication, Emerson College. On-air host and producer, WERS 88.9 FM (NPR affiliate). Semester abroad, Kasteel Well, Netherlands.</p>
-      </div>
+    <div class="aside-block">
+      <div class="aside-label">On brand</div>
+      <p>Brand is the highest-leverage demand gen tool available to most organizations. The leaders who treat brand as a growth decision tend to be the ones winning the next cycle.</p>
+    </div>
+    <div class="aside-block">
+      <div class="aside-label">On teams</div>
+      <p>The most important hires I&#8217;ve made were people better than me in specific areas. Recognizing that gap and filling it deliberately has been highly rewarding.</p>
+    </div>
+    <div class="aside-block">
+      <div class="aside-label">Education</div>
+      <p>B.S. Marketing Communication, Emerson College. On-air host and producer, WERS 88.9 FM (NPR affiliate). Semester abroad, Kasteel Well, Netherlands.</p>
     </div>
   </div>
+
 </div>
 </section>
 
 <!-- SKILLS -->
-<div class="skills-band">
-<div class="skills-inner">
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h3>Integrated Strategy</h3>
-      <p>Start with the business goal, build backwards. The discipline is knowing which combination of channels, messages, and creative is actually necessary, and which is noise.</p>
-    </div>
-    <div class="skill-card">
-      <h3>Growth & Demand Gen</h3>
-      <p>Full-funnel: acquisition, retention, ABM, lifecycle, performance, martech. Built these functions from scratch at multiple organizations. Know where the leverage is.</p>
-    </div>
-    <div class="skill-card">
-      <h3>Brand Development</h3>
-      <p>Positioning, campaign development, sub-brand systems, repositioning. Managed nine brands simultaneously. Fluent in the language finance actually responds to.</p>
-    </div>
-  </div>
-</div>
-</div>
+
 
 <!-- EXPERIENCE -->
-<section id="experience">
-<div class="inner">
-  <div class="section-label">Experience</div>
 
-  <article class="exp-item">
-    <div>
-      <div class="exp-co">Siegel+Gale (Omnicom)</div>
-      <div class="exp-dates">2024 - Present</div>
-      <div class="exp-loc">New York, NY</div>
-    </div>
-    <div>
-      <div class="badge">Current</div>
-      <div class="exp-title">Chief Marketing Officer</div>
-      <p class="exp-desc">Omnicom's global brand strategy and design consultancy. Full ownership across demand gen, brand, martech, content, events, and team.</p>
-      <ul class="bullets">
-        <li>Growing topline revenue and Omnicom pipeline through demand gen, ABM, and integrated campaign work</li>
-        <li>Generating meaningful inter-agency business through cross-network partnerships</li>
-        <li>Leading brand repositioning across website, sales journey, and client experience</li>
-        <li>Deploying AI-powered tools that accelerate campaign velocity</li>
-        <li>Building the marketing team from scratch: hiring, structure, and culture</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="exp-item">
-    <div>
-      <div class="exp-co">Lyft</div>
-      <div class="exp-dates">2021 - 2024</div>
-      <div class="exp-loc">New York, NY</div>
-    </div>
-    <div>
-      <div class="exp-title">Director, Head of Marketing, Lines of Business</div>
-      <p class="exp-desc">Integrated growth marketing across rideshare, bikeshare, e-bikes, and scooters. Team of 15, nine local sub-brands.</p>
-      <ul class="bullets">
-        <li>"Yes, You Are a Bike Person", Lyft's first national bikeshare campaign. Drove millions of incremental rides in weeks. Earned media and industry awards.</li>
-        <li>Broke Lyft's all-time bikeshare rides record through coordinated national activations</li>
-        <li>Secured multimillion-dollar national brand investment through original research and executive business case</li>
-        <li>Built brand architecture across nine sub-brands: CitiBike, Divvy, Bay Wheels, Capital Bikeshare, and others</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="exp-item">
-    <div>
-      <div class="exp-co">IDEO</div>
-      <div class="exp-dates">2018 - 2021</div>
-      <div class="exp-loc">San Francisco, CA</div>
-    </div>
-    <div>
-      <div class="exp-title">Senior Lead, Global Brand & Marketing</div>
-      <p class="exp-desc">The preeminent human-centered design firm. Converting ideas into pipeline across three continents.</p>
-      <ul class="bullets">
-        <li>Global multi-channel campaigns across North America, Asia, and Europe</li>
-        <li>"The Discomfort Zone" campaign generated substantial direct business leads and earned placements in <strong>FastCompany</strong> and <strong>Forbes</strong></li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="exp-item">
-    <div>
-      <div class="exp-co">GIG Car Share / Zipcar</div>
-      <div class="exp-dates">2011 - 2018</div>
-      <div class="exp-loc">Oakland & SF, CA</div>
-    </div>
-    <div>
-      <div class="exp-title">Product Marketing & Regional Marketing Leadership</div>
-      <p class="exp-desc">Led SF expansion at GIG; grew to leading eight Western Region markets at Zipcar.</p>
-      <ul class="bullets">
-        <li>Promoted to oversee eight Western Region markets; hired and developed 40+ regional team members</li>
-        <li>"Design Your Ride" significantly lifted vehicle utilization and scaled nationally</li>
-        <li>Authored Zipcar's first strategic sponsorships and partnerships playbook</li>
-      </ul>
-    </div>
-  </article>
-
-</div>
-</section>
 
 <!-- SPEAKING -->
 <section id="speaking">
@@ -757,50 +899,85 @@ footer {
   <div class="section-label">Speaking</div>
 
   <div class="speaking-item">
-    <div class="sp-icon"><i class="ti ti-microphone"></i></div>
+    <div class="sp-badge"><svg viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg">
+  <rect width="68" height="68" fill="white"/>
+  <rect x="0" y="0" width="68" height="5" fill="#0A0014"/>
+  <text x="34" y="36" font-family="Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="900" fill="#0A0014" text-anchor="middle" letter-spacing="0.5">chief</text>
+  <text x="34" y="52" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#8A7DA0" text-anchor="middle" letter-spacing="2">NYC</text>
+</svg></div>
     <div>
       <div class="sp-venue">Chief NYC</div>
-      <div class="sp-title">Why Brand-Building Matters More Than Ever</div>
+      <a class="sp-title" href="https://chief.com" target="_blank" rel="noopener">Why Brand-Building Matters More Than Ever</a>
       <div class="sp-desc">Panel on brand strategy as a business decision. What it takes to build brands that resonate, and why companies that stand for something clear win on revenue, not just reputation.</div>
       <div class="sp-date">June 2026</div>
     </div>
   </div>
 
   <div class="speaking-item">
-    <div class="sp-icon"><i class="ti ti-brand-podcast"></i></div>
+    <div class="sp-badge"><svg viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg">
+  <rect width="68" height="68" fill="#0A0014"/>
+  <rect x="16" y="30" width="5" height="10" rx="2.5" fill="#E8FF00"/>
+  <rect x="23" y="24" width="5" height="22" rx="2.5" fill="#E8FF00"/>
+  <rect x="30" y="18" width="6" height="34" rx="3" fill="#E8FF00" opacity="0.9"/>
+  <rect x="38" y="24" width="5" height="22" rx="2.5" fill="#E8FF00"/>
+  <rect x="45" y="30" width="5" height="10" rx="2.5" fill="#E8FF00"/>
+  <text x="34" y="62" font-family="Helvetica Neue,Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="1.5">PODCAST</text>
+</svg></div>
     <div>
       <div class="sp-venue">Think Factory Podcast</div>
-      <div class="sp-title">From Motor City to Marketing the Future of Mobility</div>
+      <a class="sp-title" href="https://www.linkedin.com/in/doryellis" target="_blank" rel="noopener">From Motor City to Marketing the Future of Mobility</a>
       <div class="sp-desc">Live recording on career arc, behavior change in mobility marketing, and what happens when brand strategy and growth stop working against each other.</div>
       <div class="sp-date">May 2026</div>
     </div>
   </div>
 
   <div class="speaking-item">
-    <div class="sp-icon"><i class="ti ti-brand-podcast"></i></div>
+    <div class="sp-badge"><svg viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg">
+  <rect width="68" height="68" fill="#5B0EC5"/>
+  <path d="M 12 26 L 28 20 L 28 48 L 12 42 Z" fill="white" opacity="0.92"/>
+  <rect x="28" y="27" width="8" height="14" fill="white" opacity="0.75"/>
+  <path d="M 38 22 Q 48 34 38 46" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <path d="M 44 17 Q 58 34 44 51" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+  <text x="34" y="63" font-family="Helvetica Neue,Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1">MASSET</text>
+</svg></div>
     <div>
       <div class="sp-venue">Content Amplified · Masset</div>
-      <div class="sp-title">Getting More Out of Your Marketing Content</div>
+      <a class="sp-title" href="https://www.masset.co" target="_blank" rel="noopener">Getting More Out of Your Marketing Content</a>
       <div class="sp-desc">On content strategy, amplification frameworks, and making marketing work harder across the funnel without simply doing more of it.</div>
       <div class="sp-date">2025</div>
     </div>
   </div>
 
   <div class="speaking-item">
-    <div class="sp-icon"><i class="ti ti-microphone"></i></div>
+    <div class="sp-badge"><svg viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg">
+  <rect width="68" height="68" fill="#050010"/>
+  <polygon points="34,2 18,66 50,66" fill="rgba(232,255,0,0.07)"/>
+  <rect x="26" y="12" width="16" height="26" rx="8" fill="none" stroke="#E8FF00" stroke-width="2.5"/>
+  <line x1="34" y1="38" x2="34" y2="50" stroke="#E8FF00" stroke-width="2"/>
+  <path d="M 22 36 Q 22 52 34 52 Q 46 52 46 36" fill="none" stroke="#E8FF00" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="56" cy="12" r="7" fill="#E8FF00"/>
+  <circle cx="56" cy="12" r="4" fill="#FF2200"/>
+</svg></div>
     <div>
       <div class="sp-venue"><strong>Advertising Week</strong> New York · AW360 Live</div>
-      <div class="sp-title">On Brand Clarity and Simplicity</div>
+      <a class="sp-title" href="https://www.siegelgale.com/live-from-advertising-week-ny-dory-ellis-garfinkle/" target="_blank" rel="noopener">On Brand Clarity and Simplicity</a>
       <div class="sp-desc">Recorded live at AWNY 2025. On building brands that are simple and unforgettable, and why putting people first remains the one investment that always pays off.</div>
       <div class="sp-date">October 2025</div>
     </div>
   </div>
 
   <div class="speaking-item">
-    <div class="sp-icon"><i class="ti ti-calendar-event"></i></div>
+    <div class="sp-badge"><svg viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg">
+  <rect width="68" height="68" fill="white"/>
+  <rect x="0" y="0" width="68" height="3" fill="#E8FF00"/>
+  <rect x="0" y="65" width="68" height="3" fill="#5B0EC5" opacity="0.4"/>
+  <text x="34" y="28" font-family="Georgia,serif" font-size="12" fill="#111" text-anchor="middle">Siegel</text>
+  <text x="34" y="44" font-family="Georgia,serif" font-size="12" fill="#111" text-anchor="middle">+Gale</text>
+  <text x="34" y="58" font-family="Helvetica Neue,Arial,sans-serif" font-size="7" fill="#5B0EC5" text-anchor="middle" letter-spacing="1.5">EVENTS</text>
+</svg></div>
     <div>
       <div class="sp-venue">Siegel+Gale · Dare to Simplify</div>
-      <div class="sp-title">Transforming for Wall Street and Beyond</div>
+      <a class="sp-title" href="https://www.siegelgale.com/dare-to-simplify/" target="_blank" rel="noopener">Transforming for Wall Street and Beyond</a>
       <div class="sp-desc">Hosted executive event series on brand simplicity in financial services, for CMOs navigating complexity, disruption, and the AI transition.</div>
       <div class="sp-date">2024-2025 Series</div>
     </div>
@@ -856,7 +1033,7 @@ footer {
   <line x1="0" y1="40" x2="280" y2="40" stroke="#5B0EC5" stroke-width="0.5" opacity="0.08"/>
   <line x1="0" y1="80" x2="280" y2="80" stroke="#5B0EC5" stroke-width="0.5" opacity="0.08"/>
   <line x1="0" y1="120" x2="280" y2="120" stroke="#5B0EC5" stroke-width="0.5" opacity="0.08"/>
-  <!-- Five bars — complexity decreasing, impact increasing -->
+  <!-- Five bars - complexity decreasing, impact increasing -->
   <rect x="12" y="18" width="38" height="126" rx="3" fill="url(#t2bar)" opacity="0.95"/>
   <rect x="60" y="36" width="38" height="108" rx="3" fill="url(#t2bar)" opacity="0.82"/>
   <rect x="108" y="54" width="38" height="90" rx="3" fill="url(#t2bar)" opacity="0.68"/>
@@ -884,7 +1061,7 @@ footer {
   <rect x="0" y="0" width="280" height="3" fill="#E8FF00"/>
   <!-- Large CMO text watermark -->
   <text x="140" y="130" font-family="'Helvetica Neue',Arial,sans-serif" font-size="90" font-weight="900" fill="white" opacity="0.04" text-anchor="middle" letter-spacing="-4">CMO</text>
-  <!-- Month progress dots — 4x3 grid, color-ramping -->
+  <!-- Month progress dots - 4x3 grid, color-ramping -->
   <text x="20" y="34" font-family="Georgia,serif" font-size="10" fill="rgba(232,255,0,0.45)" letter-spacing="3">YEAR ONE</text>
   <!-- Row 1 -->
   <circle cx="30" cy="60" r="10" fill="#2D1070"/><text x="30" y="65" font-family="monospace" font-size="8" fill="rgba(192,132,252,0.5)" text-anchor="middle">Jan</text>
@@ -921,7 +1098,7 @@ footer {
   <!-- Outer frame -->
   <rect x="8" y="8" width="264" height="158" fill="none" stroke="rgba(232,255,0,0.3)" stroke-width="1"/>
   <rect x="14" y="14" width="252" height="146" fill="none" stroke="rgba(232,255,0,0.12)" stroke-width="0.5"/>
-  <!-- Campaign wordmark — the centerpiece -->
+  <!-- Campaign wordmark - the centerpiece -->
   <text x="140" y="62" font-family="Georgia,serif" font-size="12" fill="rgba(255,255,255,0.45)" text-anchor="middle" letter-spacing="10" font-weight="300">DARE TO</text>
   <text x="140" y="108" font-family="Georgia,serif" font-size="50" fill="white" text-anchor="middle" letter-spacing="0" font-weight="300" font-style="italic">Simplify</text>
   <!-- Neon underline -->
@@ -1034,6 +1211,121 @@ footer {
 </section>
 
 <!-- CONTACT -->
+<section id="music">
+  <div class="music-inner">
+    <div class="music-copy">
+      <div class="music-eyebrow">What I&#8217;m rocking lately</div>
+      <h2 class="music-headline">The playlist<br>behind the<br><em>work.</em></h2>
+      <p class="music-desc">142 tracks. The soundtrack to strategy decks, late edits, and the commute in between. Hit play&#8202;&#8212;&#8202;no account needed.</p>
+      <div class="music-meta">On Spotify&nbsp;&middot;&nbsp;<a href="https://open.spotify.com/playlist/3cMl33MwRgD8DH2FRNBu1J" target="_blank" rel="noopener">Open full playlist &#8599;</a></div>
+    </div>
+    <div class="music-player">
+      <iframe src="https://open.spotify.com/embed/playlist/3cMl33MwRgD8DH2FRNBu1J?utm_source=generator&theme=0"
+        width="380" height="420" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+<div class="inner">
+  <div class="section-label">Experience</div>
+
+  <article class="exp-item">
+    <div>
+      <div class="exp-co">Siegel+Gale (Omnicom)</div>
+      <div class="exp-dates">2024 - Present</div>
+      <div class="exp-loc">New York, NY</div>
+    </div>
+    <div>
+      <div class="badge">Current</div>
+      <a class="exp-title" href="https://www.siegelgale.com" target="_blank" rel="noopener">Chief Marketing Officer</a>
+      <p class="exp-desc">Omnicom's global brand strategy and design consultancy. Full ownership across demand gen, brand, martech, content, events, and team.</p>
+      <button class="acc-toggle">
+        <span class="acc-arrow">›</span> Highlights
+      </button>
+      <div class="acc-body">
+        <ul class="bullets">
+        <li>Growing topline revenue and Omnicom pipeline through demand gen, ABM, and integrated campaign work</li>
+        <li>Generating meaningful inter-agency business through cross-network partnerships</li>
+        <li>Leading brand repositioning across website, sales journey, and client experience</li>
+        <li>Deploying AI-powered tools that accelerate campaign velocity</li>
+        <li>Building the marketing team from scratch: hiring, structure, and culture</li>
+      </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="exp-item">
+    <div>
+      <div class="exp-co">Lyft</div>
+      <div class="exp-dates">2021 - 2024</div>
+      <div class="exp-loc">New York, NY</div>
+    </div>
+    <div>
+      <a class="exp-title" href="https://www.lyft.com" target="_blank" rel="noopener">Director, Head of Marketing, Lines of Business</a>
+      <p class="exp-desc">Integrated growth marketing across rideshare, bikeshare, e-bikes, and scooters. Team of 15, nine local sub-brands.</p>
+      <button class="acc-toggle">
+        <span class="acc-arrow">›</span> Highlights
+      </button>
+      <div class="acc-body">
+        <ul class="bullets">
+        <li>"Yes, You Are a Bike Person", Lyft's first national bikeshare campaign. Drove millions of incremental rides in weeks. Earned media and industry awards.</li>
+        <li>Broke Lyft's all-time bikeshare rides record through coordinated national activations</li>
+        <li>Secured multimillion-dollar national brand investment through original research and executive business case</li>
+        <li>Built brand architecture across nine sub-brands: CitiBike, Divvy, Bay Wheels, Capital Bikeshare, and others</li>
+      </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="exp-item">
+    <div>
+      <div class="exp-co">IDEO</div>
+      <div class="exp-dates">2018 - 2021</div>
+      <div class="exp-loc">San Francisco, CA</div>
+    </div>
+    <div>
+      <a class="exp-title" href="https://www.ideo.com" target="_blank" rel="noopener">Senior Lead, Global Brand & Marketing</a>
+      <p class="exp-desc">The preeminent human-centered design firm. Converting ideas into pipeline across three continents.</p>
+      <button class="acc-toggle">
+        <span class="acc-arrow">›</span> Highlights
+      </button>
+      <div class="acc-body">
+        <ul class="bullets">
+        <li>Global multi-channel campaigns across North America, Asia, and Europe</li>
+        <li>"The Discomfort Zone" campaign generated substantial direct business leads and earned placements in <strong>FastCompany</strong> and <strong>Forbes</strong></li>
+      </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="exp-item">
+    <div>
+      <div class="exp-co">GIG Car Share / Zipcar</div>
+      <div class="exp-dates">2011 - 2018</div>
+      <div class="exp-loc">Oakland & SF, CA</div>
+    </div>
+    <div>
+      <a class="exp-title" href="https://www.zipcar.com" target="_blank" rel="noopener">Product Marketing & Regional Marketing Leadership</a>
+      <p class="exp-desc">Led SF expansion at GIG; grew to leading eight Western Region markets at Zipcar.</p>
+      <button class="acc-toggle">
+        <span class="acc-arrow">›</span> Highlights
+      </button>
+      <div class="acc-body">
+        <ul class="bullets">
+        <li>Promoted to oversee eight Western Region markets; hired and developed 40+ regional team members</li>
+        <li>"Design Your Ride" significantly lifted vehicle utilization and scaled nationally</li>
+        <li>Authored Zipcar's first strategic sponsorships and partnerships playbook</li>
+      </ul>
+      </div>
+    </div>
+  </article>
+
+</div>
+</section>
+
 <section id="contact" style="background:var(--dark);padding:96px 56px">
 <div class="contact-inner">
   <div class="c-eyebrow">Get in touch</div>
@@ -1063,6 +1355,29 @@ footer {
   </div>
   <div class="footer-loc">New York, NY</div>
 </footer>
+
+
+<script>
+document.querySelectorAll('.acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all others in this section
+    btn.closest('#experience').querySelectorAll('.acc-toggle').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    // Toggle this one
+    if (!isOpen) {
+      btn.classList.add('open');
+      body.classList.add('open');
+    }
+  });
+});
+// Open first accordion by default
+const first = document.querySelector('.acc-toggle');
+if (first) { first.classList.add('open'); first.nextElementSibling.classList.add('open'); }
+</script>
 
 </body>
 </html>
