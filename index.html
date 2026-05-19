@@ -671,12 +671,13 @@ h1 em{font-style:italic;color:var(--accent);font-weight:300}
   max-height: 0 !important;
   opacity: 0;
   pointer-events: none;
+  padding: 0 !important;
 }
 .sa-panel.section-wrap {
   padding: 64px var(--pad);
   text-align: center;
 }
-.sa-panel.section-wrap.closed { padding: 0 }
+.sa-panel.section-wrap.closed { padding: 0 !important; max-height: 0 !important; opacity: 0 }
 /* Role cell: "Full-Stack CMO" in neon bold */
 .ustat--role 
 /* About skills block */
@@ -992,6 +993,17 @@ footer {
 a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
 .c-link, .acc-toggle, .exp-more-toggle, label, [role="button"] {
   cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMTIgNCBMMTIgMTggTDggMTQgTDYgMTYgTDEyIDI2IEwyMCAyNiBMMjQgMjAgTDI0IDEyIEwyMiAxMiBMMjIgOCBMMjAgOCBMMjAgNCBMMTggNCBMMTggOCBMMTYgOCBMMTYgNCBaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=") 8 2, pointer;
+}
+/* Music volume line */
+.music-volume {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--light);
+  margin-top: 32px;
+  letter-spacing: .02em;
 }
 </style>
 </head>
@@ -1429,12 +1441,14 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3cMl33MwRgD8DH2FRNBu1J?utm_source=generator" width="420" height="440" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         </div>
       </div>
-      <div class="sec-cta"><a href="#contact">Get in touch</a></div>
+      <p class="music-volume">To be played at maximum volume.</p>
+          <div class="sec-cta"><a href="#contact">Get in touch</a></div>
         
   
   
     </div>
   </div>
+  
 </div></div>
     </div>
       
