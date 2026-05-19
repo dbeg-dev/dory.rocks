@@ -911,9 +911,7 @@ footer {
   letter-spacing: 1.5px;
   font-family: var(--mono);
 }
-.ustat--role .ustat-n {
-  font-size: clamp(16px, 2vw, 24px);
-}
+.ustat--role .ustat-n { font-size: clamp(22px, 2.8vw, 36px) }
 
 /* ── Ribbon ── */
 
@@ -1001,10 +999,10 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
 <nav>
   <div class="nav-name">DORY ELLIS GARFINKLE</div>
   <div class="nav-links">
-    <a href="#about" onclick="(function(){var p=document.getElementById('acc-about');var b=p&&p.previousElementSibling;if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}})();">About</a>
-    <a href="#work" onclick="(function(){var p=document.getElementById('acc-work');var b=p&&p.previousElementSibling;if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}})();">Speaking &amp; Ideas</a>
-    <a href="#music" onclick="(function(){var p=document.getElementById('acc-music');var b=p&&p.previousElementSibling;if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}})();">Music</a>
-    <a href="#experience" onclick="(function(){var p=document.getElementById('acc-experience');var b=p&&p.previousElementSibling;if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}})();">Experience</a>
+    <a href="#about" onclick="var p=document.getElementById('acc-about');var b=document.getElementById('btn-about');if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}">About</a>
+    <a href="#work" onclick="var p=document.getElementById('acc-work');var b=document.getElementById('btn-work');if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}">Speaking &amp; Ideas</a>
+    <a href="#music" onclick="var p=document.getElementById('acc-music');var b=document.getElementById('btn-music');if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}">Music</a>
+    <a href="#experience" onclick="var p=document.getElementById('acc-experience');var b=document.getElementById('btn-experience');if(p&&p.classList.contains('closed')){p.classList.remove('closed');p.style.maxHeight='none';if(b)b.setAttribute('aria-expanded','true');}">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -1019,9 +1017,9 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
     <h1>The right mix of tools,<br>people, and ideas,<br><em>at the right moment.</em></h1>
     <p class="hero-body">Good marketing starts with a diagnosis, not a default. It&#8217;s figuring out which combination of strategy, creative, technology, and talent actually moves the business.</p>
     <div class="btn-row">
-      <a href="#work" class="btn-primary">See the work</a>
+      <a href="#work" class="btn-primary" onclick="saToggle('work')">See the work</a>
       <a href="#contact" class="btn-ghost">Get in touch</a>
-      <a href="#music" class="btn-music">&#9835;&nbsp;Rock &#8217;n roll</a>
+      <a href="#music" class="btn-music" onclick="saToggle('music')">&#9835;&nbsp;Rock &#8217;n roll</a>
     </div>
   </div>
 </div>
@@ -1138,7 +1136,7 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
 
 
 <div class="sa-group">
-  <div class="sa-item">
+  <div class="sa-item" id="about">
     <button class="sa-btn" id="btn-about" aria-expanded="false" onclick="saToggle('about')">
       <span class="sa-label">About</span>
       <span class="sa-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1180,7 +1178,7 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
   
     </div>
   </div>
-  <div class="sa-item">
+  <div class="sa-item" id="philosophy">
     <button class="sa-btn" id="btn-philosophy" aria-expanded="false" onclick="saToggle('philosophy')">
       <span class="sa-label">Point of view</span>
       <span class="sa-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1212,7 +1210,7 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
   
     </div>
   </div>
-  <div class="sa-item">
+  <div class="sa-item" id="work">
     <button class="sa-btn" id="btn-work" aria-expanded="false" onclick="saToggle('work')">
       <span class="sa-label">Speaking &amp; Ideas</span>
       <span class="sa-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1376,7 +1374,7 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
   
     </div>
   </div>
-  <div class="sa-item">
+  <div class="sa-item" id="experience">
     <button class="sa-btn" id="btn-experience" aria-expanded="false" onclick="saToggle('experience')">
       <span class="sa-label">Experience</span>
       <span class="sa-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1411,7 +1409,7 @@ a, button, .sa-btn, .acc-nav-btn, .btn-primary, .btn-ghost, .btn-music,
   
     </div>
   </div>
-  <div class="sa-item">
+  <div class="sa-item" id="music">
     <button class="sa-btn" id="btn-music" aria-expanded="false" onclick="saToggle('music')">
       <span class="sa-label">Music</span>
       <span class="sa-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
