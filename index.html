@@ -8,6 +8,16 @@
 <title>Dory Ellis Garfinkle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dory Ellis Garfinkle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#2D0060;--body:#2D2040;--mid:#C4A8FF;--light:#9B7ED0;--rule:rgba(255,255,255,0.12);--bg:#2D0060;--warm:#340070;--accent:#7000FF;--neon:#E8FF00;--dark:#2D0060;--serif:'VT323',monospace;--mono:'Space Mono',monospace;--sans:'Oswald','Arial Narrow',sans-serif;--max:1100px;--pad:60px;font-size:19px;line-height:1.85;color:#F0E8FF;background:#1a0038;-webkit-font-smoothing:antialiased;margin:0;padding:0}
@@ -1145,8 +1155,8 @@ a, button, [onclick], .sa-btn, .work-item,
 
 /* ── CROSS-BROWSER BASE ── */
 *, *::before, *::after { box-sizing: border-box }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: hidden }
-body { overflow-x: hidden }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x:clip }
+body { overflow-x:clip }
 a, button { -webkit-tap-highlight-color: transparent }
 img { max-width: 100%; height: auto }
 iframe { max-width: 100% }
@@ -1323,12 +1333,7 @@ iframe { max-width: 100% }
   margin: 0 0 4px 0; padding: 0;
   transition: color .15s;
 }
-.work-item-desc {
-  font-family: system-ui,"Helvetica Neue",sans-serif;
-  font-size: 13px; font-weight: 300;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.6; margin: 0; padding: 0;
-}
+.work-item-desc {  font-family: system-ui,"Helvetica Neue",sans-serif;  font-size: 15px; font-weight: 300; font-style: normal;  text-transform: none;  color: rgba(255,255,255,0.88);  line-height: 1.8; margin: 0; padding: 0;}
 /* EXPERIENCE — company, title, dates stacked */
 .exp-item {
   display: block;
@@ -1509,6 +1514,23 @@ h1, h2, h3 {
 
 /* h1 em: italic in Oswald (design intent) */
 h1 em { font-style:italic !important; color:#E8FF00 }
+/* work-item-title: no caps, match story font */
+.work-item-title {
+  text-transform: none !important;
+  font-style: normal !important;
+  font-family: 'Oswald','Arial Narrow',sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  color: white !important;
+}
+.work-item-desc {
+  text-transform: none !important;
+  font-family: system-ui,"Helvetica Neue",sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 15px !important;
+  color: rgba(255,255,255,0.88) !important;
+  line-height: 1.8 !important;
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=VT323&family=Oswald:wght@700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
 <script>
