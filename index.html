@@ -904,7 +904,7 @@ span.sa-label {
   box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
 }
 /* RETRO CURSOR */
-a, button, [onclick], .work-item, .sa-btn, .nav-links a,
+a, button, [onclick], .sa-btn, .nav-links a,
 .btn-primary, .btn-ghost, .btn-music, 
 /* HERO BUTTONS  -  retro offset shadow */
 .btn-primary, .btn-ghost, .btn-music {
@@ -1514,22 +1514,26 @@ h1, h2, h3 {
 
 /* h1 em: italic in Oswald (design intent) */
 h1 em { font-style:italic !important; color:#E8FF00 }
-/* work-item-title: no caps, match story font */
+/* Speaking & Ideas — no caps, readable */
 .work-item-title {
   text-transform: none !important;
-  font-style: normal !important;
   font-family: 'Oswald','Arial Narrow',sans-serif !important;
+  font-style: normal !important;
   font-weight: 500 !important;
   font-size: 16px !important;
   color: white !important;
+  letter-spacing: 0.2px !important;
 }
+.work-item:hover .work-item-title { color: #E8FF00 !important }
 .work-item-desc {
   text-transform: none !important;
   font-family: system-ui,"Helvetica Neue",sans-serif !important;
   font-weight: 300 !important;
+  font-style: normal !important;
   font-size: 15px !important;
   color: rgba(255,255,255,0.88) !important;
   line-height: 1.8 !important;
+  margin: 0 !important;
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=VT323&family=Oswald:wght@700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
